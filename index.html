@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Delivia :: виджет по подбору способа доставк</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="vendor/scripts/vendor.js"></script>
+    <link rel="stylesheet" href="styles/app.css" />
+    <script src="https://api-maps.yandex.ru/2.1/?lang=ru_RU" type="text/javascript"></script>
+    <script src="scripts/app.js"></script>
+</head>
+<body>
+<div class="page-layout">
+    <div class="filter">
+        <div class="filter__region">
+            <div class="input-group">
+                <label for="filter-city">Город</label>
+                <select name="regions" id="filter-city" data-model="city">
+                    <option value="moscow">Москва</option>
+                    <option value="spb">Санкт-Петербург</option>
+                    <option value="msk">Казань</option>
+                </select>
+            </div>
+
+            <div class="input-group">
+                <label for="filter-metro">Метро</label>
+                <select name="metro" id="filter-metro" data-model="metro">
+                    <option value="metro">Выбрать</option>
+                </select>
+            </div>
+
+            <div class="input-group">
+                <input type="text" placeholder="Ближайший адрес" data-model="address">
+            </div>
+
+            <button class="btn btn_default js-search-addr">Показать</button>
+        </div>
+
+        <div class="filter__params js-filters">
+            <div class="input-group checkbox">
+                <label>
+                    <input type="checkbox" class="js-filter" data-model="card">
+                    Оплата картой
+                </label>
+            </div>
+
+            <div class="input-group checkbox">
+                <label>
+                    <input type="checkbox" class="js-filter" data-model="fitting">
+                    Примерка
+                </label>
+            </div>
+
+            <div class="input-group checkbox">
+                <label>
+                    <input type="checkbox" class="js-filter" data-model="fulltime">
+                    Круглосуточно
+                </label>
+            </div>
+
+            <div class="js-carriers filter__params-carriers"></div>
+        </div>
+    </div>
+
+    <div class="points-list js-side-objects"></div>
+
+    <div class="map-wrap">
+        <div id="map"></div>
+    </div>
+</div>
+</body>
+</html>
